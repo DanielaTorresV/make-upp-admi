@@ -1,0 +1,13 @@
+/* abstracts */
+@import "./styles/abstracts/variables";
+@import "./styles/abstracts/mixins";
+
+/* base */
+@import "./styles/base/base";
+@import "./styles/base/resets";
+
+/* components */
+
+
+/* pages */
+@import "./styles/pages/mainLogin.scss"
