@@ -1,0 +1,23 @@
+.containerNav{
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
+    margin-top: 15px;
+}
+
+.logoNav{
+    width: 150px;
+    height: 100px;
+    @media (max-width: 768px) {
+        width: 75px;
+        height: 50px;
+      }
+}
+
+.welcomeNav{
+    color: var(--Contrast-Blue);
+    font-size: 35px;
+    @media (max-width: 768px) {
+        font-size: 14px;
+      }
+}

@@ -7,7 +7,9 @@
 @import "./styles/base/resets";
 
 /* components */
-
+@import "./styles/components/logOutButton.scss";
+@import "./styles/components/nav.scss";
 
 /* pages */
-@import "./styles/pages/mainLogin.scss"
+@import "./styles/pages/mainLogin.scss";
+@import "./styles/pages/products.scss";

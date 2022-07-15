@@ -42,7 +42,7 @@ const MainLogin = () => {
     }
   };
 
-  /*const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     const { email, password } = form.values;
     try {
       const res = await axios.post(
@@ -56,16 +56,19 @@ const MainLogin = () => {
       ls.set("name", res.data.data.name);
       ls.set("email", res.data.data.email);
       ls.set("isManager", res.data.data.isManager);
-      const token = await localStorage.getItem("token");
-      if (token) {
+      const admi = await ls.get("isManager");
+      if (admi === true) {
         nav("/products");
+      } else {
+        toast.error("The user is not manager.");
+        localStorage.clear();
       }
     } catch (e) {
       toast.error(
-        "Verifique su contraseña o email, o si el usuario no es administrador."
+        "Verify your email or password, or If the user is not manager."
       );
     }
-  };*/
+  };
 
   return (
     <div className="loginContainer">
@@ -74,15 +77,12 @@ const MainLogin = () => {
         <div className="loginContainerRegister">
           <p className="loginTextCreateAccount">Login as Manager in MakeUpp</p>
           <Box>
-            <form className="loginForm">
-              {" "}
-              {/*onSubmit={form.onSubmit(handleSubmit)}/>*/}
+            <form className="loginForm" onSubmit={form.onSubmit(handleSubmit)}>
               <TextInput
                 required
                 className="inputForm"
                 placeholder="Put your email"
                 {...form.getInputProps("email")}
-                data-cy="textInput-login"
               />
               <PasswordInput
                 required
