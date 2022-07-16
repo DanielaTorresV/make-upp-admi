@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "@mantine/form";
 import { Modal, Button, Group, Box, TextInput } from "@mantine/core";
-import { postProducts } from "../../../store/reducers/Product.reducer";
+import {
+  getProducts,
+  postProducts,
+} from "../../../store/reducers/Product.reducer";
 
 const CreateProduct = () => {
   const [opened, setOpened] = useState(false);
@@ -17,6 +20,10 @@ const CreateProduct = () => {
     },
   });
 
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
   const handleSubmit = async (e) => {
     const { name, description, category } = form.values;
 
@@ -27,7 +34,6 @@ const CreateProduct = () => {
     data.append("image", file);
 
     dispatch(postProducts(data));
-
     form.reset();
   };
 
@@ -79,7 +85,7 @@ const CreateProduct = () => {
                 {!!image && (
                   <img
                     src={image}
-                    alt="Product image"
+                    alt="Product"
                     loading="lazy"
                     className="createProduct-imgChoose"
                   />
