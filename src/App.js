@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import ls from "localstorage-slim";
 import encUTF8 from "crypto-js/enc-utf8";
 import AES from "crypto-js/aes";
+import RecoverPassword from "./pages/RecoverPasword";
 
 ls.config.encrypt = true;
 ls.config.secret = "secret-string";
@@ -42,6 +43,7 @@ function App() {
           path="/products"
           element={<PrivateRoute children={<Products />}></PrivateRoute>}
         />
+        <Route path="/rec-password/:token" element={<RecoverPassword />} />
       </Routes>
       <Toaster position="bottom-center" />
     </BrowserRouter>

@@ -8,7 +8,10 @@ const Products = () => {
       <Nav />
       <div className="containerProducts">
         <CreateProduct />
-        <LisOfProducts />
+        <h3 className="titleProducts">Your Products</h3>
+        <div className="containerListOfProducts">
+          <LisOfProducts />
+        </div>
       </div>
     </>
   );

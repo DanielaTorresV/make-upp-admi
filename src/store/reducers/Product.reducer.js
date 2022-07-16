@@ -61,7 +61,12 @@ export const deleteProduct = (productId) => {
     try {
       dispatch({ type: PRODUCTS_LOADING, payload: true });
       const product = await axios.delete(
-        `${process.env.REACT_APP_URL_BACK}/products/${productId}`
+        `${process.env.REACT_APP_URL_BACK}/products/${productId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
       dispatch({ type: DELETE_PRODUCT, payload: productId });
       dispatch({ type: PRODUCTS_LOADING, payload: false });

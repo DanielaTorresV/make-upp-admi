@@ -1,22 +1,35 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "@mantine/form";
 import { Modal, Button, Group, Box, TextInput } from "@mantine/core";
+import { postProducts } from "../../../store/reducers/Product.reducer";
 
 const CreateProduct = () => {
   const [opened, setOpened] = useState(false);
   const [image, setImage] = useState(null); //capturamos para mostrar base64
   const [file, setFile] = useState(null); //capturamos archivo para enviar obj
+  const dispatch = useDispatch();
   const form = useForm({
     initialValues: {
       name: "",
       description: "",
+      category: "",
     },
   });
 
-  /*const handleSubmit = async (e) => {
-    const { name, description } = form.values;
-    const image = file;
-  };*/
+  const handleSubmit = async (e) => {
+    const { name, description, category } = form.values;
+
+    const data = new FormData();
+    data.append("name", name);
+    data.append("description", description);
+    data.append("category", category);
+    data.append("image", file);
+
+    dispatch(postProducts(data));
+
+    form.reset();
+  };
 
   const readFile = (file) => {
     const reader = new FileReader();
@@ -27,7 +40,6 @@ const CreateProduct = () => {
   };
 
   const handleChange = (e) => {
-    console.dir(e.target.files);
     readFile(e.target.files[0]);
     setFile(e.target.files[0]);
   };
@@ -41,8 +53,10 @@ const CreateProduct = () => {
       >
         {
           <Box sx={{ maxWidth: 240 }} mx="auto">
-            <form className="form-createProduct">
-              {/*onSubmit={form.onSubmit(handleSubmit)}>*/}
+            <form
+              className="form-createProduct"
+              onSubmit={form.onSubmit(handleSubmit)}
+            >
               <TextInput
                 required
                 label="Product Name:"
@@ -55,11 +69,17 @@ const CreateProduct = () => {
                 placeholder="Write the product description..."
                 {...form.getInputProps("description")}
               />
+              <TextInput
+                required
+                label="Category:"
+                placeholder="Face, Eyes, or Lips..."
+                {...form.getInputProps("category")}
+              />
               <div className="createProduct-containerImg">
                 {!!image && (
                   <img
                     src={image}
-                    alt="Foto perfil"
+                    alt="Product image"
                     loading="lazy"
                     className="createProduct-imgChoose"
                   />

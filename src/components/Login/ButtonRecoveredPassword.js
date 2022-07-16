@@ -19,7 +19,7 @@ const ButtonRecoveredPassword = () => {
     },
   });
 
-  /*const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     const { email } = form.values;
     try {
       console.log(email);
@@ -30,13 +30,13 @@ const ButtonRecoveredPassword = () => {
         }
       );
       toast.success(
-        "Si el email está registrado, se enviará un link al correo para la recuperación de la contraseña"
+        "If the email is registered, a link will be sent to the email to recover the password."
       );
       form.reset();
     } catch (e) {
-      toast.error("Verifique los datos, no se pudo enviar correo.");
+      toast.error("Check the data, could not send mail.");
     }
-  };*/
+  };
 
   return (
     <>
@@ -47,9 +47,7 @@ const ButtonRecoveredPassword = () => {
       >
         {
           <Box sx={{ maxWidth: 340 }} mx="auto">
-            <form>
-              {" "}
-              {/*onSubmit={form.onSubmit(handleSubmit)}>*/}
+            <form onSubmit={form.onSubmit(handleSubmit)}>
               <TextInput
                 required
                 label="Write the email with which you are registered"
