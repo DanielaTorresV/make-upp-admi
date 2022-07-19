@@ -46,6 +46,7 @@ export const postProducts = (data) => {
           },
         }
       );
+      dispatch(getProducts());
       dispatch({ type: PRODUCTS_SUCCESS, payload: product.data.data });
       dispatch({ type: PRODUCTS_LOADING, payload: false });
       toast.success("Product creates succesfully.");
