@@ -11,28 +11,29 @@ const LisOfProducts = () => {
   console.log(products);
   return (
     <>
-      {products.map((item) => {
-        return (
-          <div key={item._id}>
-            <div className="containerAllProducts">
-              <h4 className="nameProduct">Name: {item.name}</h4>
-              <p className="descriptionProduct">
-                Description: {item.description}
-              </p>
-              <p className="categoryProduct">Category: {item.category}</p>
-              <div className="containerAllProducts-imgButton">
-                <img
-                  src={item.image}
-                  alt="productImage"
-                  loading="lazy"
-                  className="imgProduct"
-                />
-                <ButtonDelete productId={item._id} />
+      {products &&
+        products.map((item) => {
+          return (
+            <div key={item._id}>
+              <div className="containerAllProducts">
+                <h4 className="nameProduct">Name: {item.name}</h4>
+                <p className="descriptionProduct">
+                  Description: {item.description}
+                </p>
+                <p className="categoryProduct">Category: {item.category}</p>
+                <div className="containerAllProducts-imgButton">
+                  <img
+                    src={item.image}
+                    alt="productImage"
+                    loading="lazy"
+                    className="imgProduct"
+                  />
+                  <ButtonDelete productId={item._id} />
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </>
   );
 };
