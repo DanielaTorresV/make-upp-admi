@@ -1,0 +1,21 @@
+.logOutButton-nav{
+    width: 120px;
+    height: 45px;
+    padding: 5px;
+    color: var(--Primary-PinkL);
+    background-color: var(--Pink-Prop);
+    font-size: 20px;
+    font-family: var(--font-default);
+    border: 2px #F3DFD1 solid;
+    border-radius: var(--round);
+    cursor: pointer;
+    @media (max-width: 768px) {
+        width: 70px;
+        height: 30px;
+        font-size: 14px;
+      }
+}
+
+.logOutButton-nav:hover{
+    background-color: var(--Secondary-PinkLigth);
+}
