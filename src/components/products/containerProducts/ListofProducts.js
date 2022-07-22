@@ -11,7 +11,7 @@ const LisOfProducts = () => {
   console.log(products);
   return (
     <>
-      {products &&
+      {products.length > 0 &&
         products.map((item) => {
           return (
             <div key={item._id}>
