@@ -30,6 +30,13 @@ This Trello clone was created with educational purposes for Make IT Real Bootcam
 
 1. Run the backend https://github.com/DanielaTorresV/makeUpp-back in the development branch.
 
-2. Register with a valid email (e.g carloanc@gmail.com) and a valid password (e.g 12345678Az) in the page of register.
+2. Login as manager, to get the info write to dannytorres0211@gmail.com.
 
-3. Start to create your makeupp box.
+![Login Admi](https://user-images.githubusercontent.com/101153916/180349422-f8b7b4e7-dfc7-41a7-84ea-f8b8f22678e4.PNG)
+
+3. Start to update your page with the products.
+
+![Create Product](https://user-images.githubusercontent.com/101153916/180349452-c10de05a-8229-4c6a-87e2-0a0bb053c906.PNG)
+
+![All Products](https://user-images.githubusercontent.com/101153916/180349479-eab4a5bf-baf6-4f6e-9569-3c8b558a902b.PNG)
+
